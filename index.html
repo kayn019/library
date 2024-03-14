@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">header</div>
+        <div class="content">
+            <button class="add">Add Book</button>
+            <div class="contents">
+                <div class="cBox">
+                    <div id="title">e</div>
+                    <div id="author">d</div>
+                    <div id="pages">safd</div>
+                    <div id="read">gads</div>
+                    <button class="remove">Remove</button>
+                </div>
+                <div class="cBox"></div>
+
+              
+                
+            </div>
+        </div>
+        <div class="footer">Footer</div>
+    </div>
+
+    <dialog id="Dialog">
+        <form>
+          <p>Add Book</p>
+          <div>
+            <label for="FormTitle">Title: </label>
+            <input type="text" id="FormTitle">
+          </div>
+          <div>
+            <label for="FormAuthor">Author: </label>
+            <input type="text" id="FormAuthor">
+          </div>
+          <div>
+            <label for="FormPages">Pages: </label>
+            <input type="number" id="FormPages">
+          </div>
+          <div>
+            <label for="FormRead">Read: </label>
+            <input type="checkbox" id="FormRead">
+          </div>
+          <div>
+            <button value="cancel" formmethod="dialog">Cancel</button>
+            <button id="confirmBtn" value="default">Confirm</button>
+          </div>
+        </form>
+      </dialog>
+</body>
+</html>
