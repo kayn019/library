@@ -40,11 +40,11 @@ function createBookLibrary(title, author, pages, read, index, book) {
 
         div.classList.add("cBox");
         divTitle.setAttribute("id", "title");
-        divTitle.textContent = title;
+        divTitle.textContent = `Title: ${title}`;
         divAuthor.setAttribute("id", "author");
-        divAuthor.textContent = author;
+        divAuthor.textContent = `Author: ${author}`;
         divPages.setAttribute("id", "pages");
-        divPages.textContent = pages;
+        divPages.textContent = `Pages: ${pages}`;
         btnRead.setAttribute("class", `${read}`);
         btnRead.textContent = read;
         btnRead.addEventListener("click", ()=> {
@@ -70,42 +70,9 @@ function createBookLibrary(title, author, pages, read, index, book) {
 function refreshBookLibrary() {
     deleteView();
     myLibrary.forEach((book) => {
-        const div = document.createElement("div");
-        const divTitle = document.createElement("div");
-        const divAuthor = document.createElement("div");
-        const divPages = document.createElement("div");
-        const btnRead = document.createElement("button");
-        const button = document.createElement("button");
-        contents.appendChild(div);
-        div.appendChild(divTitle);
-        div.appendChild(divAuthor);
-        div.appendChild(divPages);
-        div.appendChild(btnRead);
-        div.appendChild(button);
-        div.classList.add("cBox");
-        divTitle.setAttribute("id", "title");
-        divTitle.textContent = book.title;
-        divAuthor.setAttribute("id", "author");
-        divAuthor.textContent = book.author;
-        divPages.setAttribute("id", "pages");
-        divPages.textContent = book.pages;
-        btnRead.setAttribute("class", book.read);
-        btnRead.textContent = book.read;
-        btnRead.addEventListener("click", ()=> {
-            book.changeRead(btnRead);
-        });
-        button.classList.add("remove");
-        button.textContent = "Remove";
-        button.setAttribute("id", book.index);
-        button.addEventListener("click", (e)=> {
-            // console.log(button.getAttribute("id"));
-            
-            myLibrary.splice( myLibrary.findIndex(a => a.index === book.index) , 1);
-              
-              
-            refreshBookLibrary();
-        });
-    });
+        createBookLibrary(book.title, book.author, book.pages, book.read,
+            book.index, book);
+        })
    
 }
 

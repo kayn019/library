@@ -13,24 +13,46 @@ body {
 .footer,
 .content,
 .header {
-    border: 1px solid black;
+    /* border: 1px solid black; */
+}
+
+.header{
+    background-color: #e0e1dd;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+}
+.header .logo {
+    margin-left: 20px;
+    width: 80px;
+    height: 80px;
+}
+.headerTxt {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 1000;
 }
 
 .content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
     justify-content: space-evenly;
-    background-color:cornsilk;
-    padding: 10px;
+    background-color:#f2e9e4   ;
+    padding: 20px 10px;
+    box-shadow: 0px 25px 30px -41px rgba(0,0,0,0.7) inset;
     
     
 }
 .content .add {
     padding: 10px 20px;
-    background-color: gray;
-    color: wheat;
+    background-color: black;
+    color: #e0e1dd;
     border-radius: 10px;
+    box-shadow: 0px 1px 9px 0px rgba(0,0,0,0.3);
 }
 .contents {
     display: grid;
@@ -44,9 +66,11 @@ body {
   align-items: center;
 }
 .cBox {
-    border: 1px solid black;
+    box-shadow: 0px 1px 9px 0px rgba(0,0,0,0.3);
+    border-radius: 10px;
     width: 300px;
     height: 400px;
+    background-color: #e0e1dd;
 
     display: flex;
     flex-direction: column;
@@ -56,11 +80,42 @@ body {
     font-size: 1.4rem;
 
 }
-.cBox .read {
+.cBox button{
+    border-radius: 10px;
     padding: 10px 20px;
+    border: none;
+    box-shadow: 0px 1px 9px 0px rgba(0,0,0,0.1);
+}
+.cBox .read {
+
     background-color: lime;
 }
 .cBox .notread {
-    padding: 10px 20px;
+
     background-color: red;
+}
+.cBox .remove {
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.footer {
+    background-color: #e0e1dd;
+}
+
+#Dialog {
+    width: 250px;
+    height: 400px;   
+    font-size: 1.2rem;
+}
+#Dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items:flex-start;
+    justify-content: space-between;
+}
+#FormRead {
+    width: 20px;
+    height: 20px;
 }

@@ -9,7 +9,10 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">header</div>
+        <div class="header">
+          <img src="images/library-outline.svg" alt="" class="logo">
+          <div class="headerTxt">Library</div>
+        </div>
         <div class="content">
             <button class="add">Add Book</button>
             <div class="contents">
@@ -26,26 +29,27 @@
                 
             </div>
         </div>
-        <div class="footer">Footer</div>
+        <div class="footer"></div>
     </div>
 
     <dialog id="Dialog">
+      <p>Add Book</p>
         <form>
-          <p>Add Book</p>
+          
           <div>
-            <label for="FormTitle">Title: </label>
+            <label for="FormTitle">Title: </label><br>
             <input type="text" id="FormTitle">
           </div>
           <div>
-            <label for="FormAuthor">Author: </label>
+            <label for="FormAuthor">Author: </label><br>
             <input type="text" id="FormAuthor">
           </div>
           <div>
-            <label for="FormPages">Pages: </label>
+            <label for="FormPages">Pages: </label><br>
             <input type="number" id="FormPages">
           </div>
           <div>
-            <label for="FormRead">Read: </label>
+            <label for="FormRead">Read: </label><br>
             <input type="checkbox" id="FormRead" name="formRead" value="read">
           </div>
           <div>
