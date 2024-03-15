@@ -56,3 +56,11 @@ body {
     font-size: 1.4rem;
 
 }
+.cBox .read {
+    padding: 10px 20px;
+    background-color: lime;
+}
+.cBox .notread {
+    padding: 10px 20px;
+    background-color: red;
+}

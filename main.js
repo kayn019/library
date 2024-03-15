@@ -20,22 +20,22 @@ function addBookToLibrary(title, author, pages, read) {
    book.index = index;
   
    
-   createBookLibrary(title, author, pages, read, index);
+   createBookLibrary(title, author, pages, read, index, book);
 }
 
-function createBookLibrary(title, author, pages, read, index) {
+function createBookLibrary(title, author, pages, read, index, book) {
     
         const div = document.createElement("div");
         const divTitle = document.createElement("div");
         const divAuthor = document.createElement("div");
         const divPages = document.createElement("div");
-        const divRead = document.createElement("div");
+        const btnRead = document.createElement("button");
         const button = document.createElement("button");
         contents.appendChild(div);
         div.appendChild(divTitle);
         div.appendChild(divAuthor);
         div.appendChild(divPages);
-        div.appendChild(divRead);
+        div.appendChild(btnRead);
         div.appendChild(button);
 
         div.classList.add("cBox");
@@ -45,8 +45,13 @@ function createBookLibrary(title, author, pages, read, index) {
         divAuthor.textContent = author;
         divPages.setAttribute("id", "pages");
         divPages.textContent = pages;
-        divRead.setAttribute("id", "read");
-        divRead.textContent = read;
+        btnRead.setAttribute("class", `${read}`);
+        btnRead.textContent = read;
+        btnRead.addEventListener("click", ()=> {
+            console.log("atasread");
+            book.changeRead(btnRead);
+        });
+
         button.classList.add("remove");
         button.textContent = "Remove";
         button.setAttribute("id", `${index}`);
@@ -69,13 +74,13 @@ function refreshBookLibrary() {
         const divTitle = document.createElement("div");
         const divAuthor = document.createElement("div");
         const divPages = document.createElement("div");
-        const divRead = document.createElement("div");
+        const btnRead = document.createElement("button");
         const button = document.createElement("button");
         contents.appendChild(div);
         div.appendChild(divTitle);
         div.appendChild(divAuthor);
         div.appendChild(divPages);
-        div.appendChild(divRead);
+        div.appendChild(btnRead);
         div.appendChild(button);
         div.classList.add("cBox");
         divTitle.setAttribute("id", "title");
@@ -84,8 +89,11 @@ function refreshBookLibrary() {
         divAuthor.textContent = book.author;
         divPages.setAttribute("id", "pages");
         divPages.textContent = book.pages;
-        divRead.setAttribute("id", "read");
-        divRead.textContent = book.read;
+        btnRead.setAttribute("class", book.read);
+        btnRead.textContent = book.read;
+        btnRead.addEventListener("click", ()=> {
+            book.changeRead(btnRead);
+        });
         button.classList.add("remove");
         button.textContent = "Remove";
         button.setAttribute("id", book.index);
@@ -109,6 +117,33 @@ function deleteView(){
     }
     
 }
+
+Book.prototype.changeRead = function(btnRead) {
+    console.log(this.read);
+    if(this.read == "read"){
+        btnRead.classList.add("notread");
+        btnRead.classList.remove("read");
+        btnRead.textContent = "not read";
+        this.read = "notread";
+    }else{
+        btnRead.classList.add("read");
+        btnRead.classList.remove("notread");
+        btnRead.textContent = "read";
+        this.read = "read";
+    }
+  };
+
+// function changeRead(btnRead ){
+//     if(btnRead.textContent == "read"){
+//         btnRead.classList.add("notread");
+//         btnRead.classList.remove("read");
+//         btnRead.textContent = "not read";
+//     }else{
+//         btnRead.classList.add("read");
+//         btnRead.classList.remove("notread");
+//         btnRead.textContent = "read";
+//     }
+// }
 
 
 const showButton = document.querySelector(".add");
@@ -134,7 +169,11 @@ showButton.addEventListener("click", () => {
 confirmBtn.addEventListener("click", (event) => {
   event.preventDefault(); // We don't want to submit this fake form
   dialog.close();
-  console.log(dialogAuthor.value);
+  if(dialogRead.checked){
+    dialogRead.value = "read"
+  }else{
+    dialogRead.value = "notread"
+  }
   addBookToLibrary(dialogTitle.value, dialogAuthor.value, dialogPages.value,
                    dialogRead.value);
 });
